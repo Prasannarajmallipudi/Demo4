@@ -1,0 +1,54 @@
+{% block title %} New Model {% endblock %}
+{% include 'header.html' %}
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <main>
+    <a href="{{url_for('showModels',brand_id=brand.id)}}" class="fa fa-mail-reply-all back"></a>
+  <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">Add New Model to {{brand.name}}</div>
+      <div class="card-body">
+        <form action="{{url_for('newModel',brand_id=brand.id)}} " method='POST'>
+          <div class="form-group">
+           
+
+      <div class="form-group p-10">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="modelnumber">Model Number</label>
+                <input class="form-control" id="modelnumber" type="text"  name="modelnumber" required placeholder="Enter Model Number">
+              </div>
+            </div>
+   
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="colors">Colors</label>
+                <input class="form-control" id="colors" type="text"  name="colors" required placeholder="Enter Colors">
+              </div>
+            </div>
+          </div>
+		  
+        
+		  <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="price">Price</label>
+                <input class="form-control" id="price" type="text"  title="Rs 10,999 ..." name="price" required placeholder="Enter Price">
+              </div>
+              <div class="col-md-6">
+                <label for="des">Description</label>
+                <input class="form-control" id="des" type="text"  name="des" required placeholder="Describe About Adding Model">
+              </div>
+            </div>
+        </div>
+    </div>
+          <input type="submit" class="btn btn-success btn-block" value=Add>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

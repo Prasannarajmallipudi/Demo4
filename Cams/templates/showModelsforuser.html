@@ -1,0 +1,48 @@
+{% block title %} New Brand {% endblock %}
+{% include 'header.html' %}
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <!-- Navigation -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="alert alert-info">
+        {% for message in messages %}
+        <li><strong>{{message}}</strong></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    <main>
+
+        <a href="{{url_for('showBrands')}}" class="fa fa-mail-reply-all back"></a>
+    <!-- Page Content -->
+        <div class="container">
+      
+        <div>
+            <a href="{{url_for("newModel",brand_id=brand.id)}}" class="btn btn-link new" title="Add New Model"><span class="fa fa-plus"></span></a>
+        </div>
+        <h6> {{brand.name}} </h6>
+      <!-- Page Heading -->
+      <h1 class="my-4"></h1>
+
+      <div class="row">
+
+            {% for i in model %}
+            {{i.modelnumber}}
+          </br>
+          {{i.colors}}
+        </br>
+        {{i.price}}
+      </br>
+      {{i.description}}
+    </br>
+    <a href="{{url_for('editModel',brand_id=brand.id,model_id=i.id)}}" class="btn btn-link edit ">Edit</a>
+                        <a href="{{url_for('deleteModel',brand_id=brand.id,model_id=i.id)}}" class="btn btn-link delete ">Delete</a>
+                      
+            {% endfor %}
+    </div>
+    <!-- /.container -->
+    </main>
+</div>
+{% endblock %}

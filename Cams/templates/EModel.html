@@ -1,0 +1,56 @@
+{% block title %} Edit Model {% endblock %}
+{% include 'header.html' %}
+{% extends 'base.html' %}
+{% block content %}
+<div>
+<main>
+  
+  <a href="{{url_for("showModels",brand_id=brand_id)}}" class="fa fa-mail-reply-all back"></a>
+  <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-body">
+        <form action="{{url_for('editModel',brand_id=brand_id,model_id=edit.id)}} " method='POST'>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">              
+                <div class="form-group">
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <label for="modelnumber">Model Number</label>
+                      <input class="form-control" id="modelnumber" type="text"  name="modelnumber" required placeholder="Enter Model Number">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <label for="colors">Colors</label>
+                      <input class="form-control" id="colors" type="text"  name="colors" required placeholder="Enter Colors">
+                    </div>
+                    </div>
+                </div>
+                  
+      		      <div class="form-group">
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <label for="price">Price</label>
+                      <input class="form-control" id="price" type="text"   name="price" required placeholder="Enter Price">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="description">Description</label>
+                      <input class="form-control" id="des" type="text"  name="description" required placeholder="Describe About Adding Model">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="submit" class="btn btn-success btn-block" required  value="Save">
+        </form>
+      </div>
+    </div>
+  </div>
+</main>  
+</div>
+{% endblock %}

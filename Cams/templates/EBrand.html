@@ -1,0 +1,34 @@
+{% block title %} Edit Brands {% endblock %}
+{% include 'header.html' %}
+{% extends 'base.html' %}
+{% block content %}
+<div>
+
+
+  <main>
+      <a href="{{url_for('showBrands')}}" class="fa fa-mail-reply-all back"></a>
+        <div class="container outer">
+    <div class="card card-new mx-auto mt-5">
+      <div class="card-header">Edit {{br.name}} Brand</div>
+      <div class="card-body">
+        <form action="{{url_for('editBrand', brand_id=br.id)}}" method='POST'>
+
+          <div class="form-group ">
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="brandName">Brand Name :</label>
+                <input class="form-control" id="brandName" type="text" name="name" value="{{br.name}}" title="stating letter upper case" required>
+              </div>
+            </div>
+          </div>
+
+
+          <input type="submit" class="btn btn-success btn-block"  value="Save">
+
+        </form>
+      </div>
+    </div>
+  </div>
+    </main>
+</div>
+{% endblock %}
